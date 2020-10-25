@@ -17,11 +17,17 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url
 
-from userInformation.views import signIn
+from userInformation.views import signIn, getRegisterInformation
 from userInformation.views import register
+from userInformation.views import trueRegister
+
 
 urlpatterns = [
     path('signIn/', signIn),
     path('register/', register),
+    path('getRegisterInformation/', getRegisterInformation),
+    path('trueRegister/', trueRegister),
+
+
 
 ]

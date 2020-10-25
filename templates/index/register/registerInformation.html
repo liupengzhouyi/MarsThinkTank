@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register Information</title>
+</head>
+<body>
+
+    <h1>
+        <center>
+            Register Information
+        </center>
+    </h1>
+
+    <hr>
+
+    <h3>
+        <center>
+
+            这是您的注册信息，是否确认注册？
+
+        </center>
+    </h3>
+
+    <table class="pure-table">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>USERNAME</td>
+                <td>{{ userInformation.name }}</td>
+            </tr>
+
+            <tr>
+                <td>PASSWORD</td>
+                <td>{{ userInformation.password }}</td>
+            </tr>
+
+            <tr>
+                <td>PHONE NUMBER</td>
+                <td>{{ userInformation.phoneNumber }}</td>
+
+            </tr>
+
+            <tr>
+                <td>E-mail</td>
+                <td>{{ userInformation.email }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button>
+        <a href="/userInformation/trueRegister">
+            <p>
+                注册
+            </p>
+        </a>
+    </button>
+
+    <button>
+        <a href="/userInformation/trueRegister">
+            <p>
+                从新编辑
+            </p>
+        </a>
+    </button>
+
+</body>
+</html>

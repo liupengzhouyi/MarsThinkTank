@@ -21,4 +21,6 @@ class UserInformation(models.Model):
     def __str__(self):
         return self.name
 
+    def toJson(self):
+        return {'name': self.name, 'email': self.email, 'phoneNumber': self.phoneNumber, 'password': self.password}
 
