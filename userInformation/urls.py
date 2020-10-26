@@ -20,13 +20,14 @@ from django.conf.urls import url
 from userInformation.views import signIn, getRegisterInformation
 from userInformation.views import register
 from userInformation.views import trueRegister
-
+from userInformation.views import getSignInInformation
 
 urlpatterns = [
     path('signIn/', signIn),
     path('register/', register),
     path('getRegisterInformation/', getRegisterInformation),
     path('trueRegister/', trueRegister),
+    path('getSignInInformation/', getSignInInformation)
 
 
 

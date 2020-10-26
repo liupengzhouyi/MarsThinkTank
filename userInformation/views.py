@@ -14,7 +14,7 @@ def sayHelloAt20200626(request):
 
 def signIn(request):
     # 记载模板文件，生产模板对象
-    template = loader.get_template('index/signIn.html')
+    template = loader.get_template('index/signIn/signIn.html')
     # 给定模板上下文，给模板文件传递数据
     context = {'numbers': list(range(1, 10))}
     # 模板渲染：产生标准的html文档
@@ -69,6 +69,52 @@ def trueRegister(request):
     userInformation.email = userInformationJson['email']
     userInformation.phoneNumber = userInformationJson['phoneNumber']
 
-    
     userInformation.save()
     return render(request, "index/register/success.html")
+
+
+def getSignInInformation(request):
+    request.encoding = 'utf-8'
+    if 'password' in request.GET and 'email' in request.GET:
+        userInformation = UserInformation()
+        userInformation.password = request.GET['password']
+        userInformation.email = request.GET['email']
+        try:
+            userInformationInDB = UserInformation.objects.filter(email=userInformation.email)
+            print(userInformationInDB)
+        except UserInformation.DoesNotExist:
+            userInformationInDB = None
+        if len(userInformationInDB) == 0:
+            context = {'errorInformation': "This Email Not Register!"}
+            return render(request, "index/signIn/fied.html", context)
+        else:
+            if userInformationInDB[0].password != userInformation.password:
+                context = {'errorInformation': "Password Error!"}
+                return render(request, "index/signIn/fied.html", context)
+            else:
+                return render(request, "index/signIn/success.html")
+    else:
+        context = {'errorInformation': "Please Input Your Landing Information"}
+        return render(request, "index/signIn/fied.html", context)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
