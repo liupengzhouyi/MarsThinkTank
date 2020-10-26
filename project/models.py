@@ -10,8 +10,6 @@ class Project(models.Model):
 
     create_date = models.DateTimeField()
 
-    abstractID = models.IntegerField()
-
     autherID = models.IntegerField()
 
 

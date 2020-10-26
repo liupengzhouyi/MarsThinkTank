@@ -81,7 +81,6 @@ def getSignInInformation(request):
         userInformation.email = request.GET['email']
         try:
             userInformationInDB = UserInformation.objects.filter(email=userInformation.email)
-            print(userInformationInDB)
         except UserInformation.DoesNotExist:
             userInformationInDB = None
         if len(userInformationInDB) == 0:
@@ -92,6 +91,7 @@ def getSignInInformation(request):
                 context = {'errorInformation': "Password Error!"}
                 return render(request, "index/signIn/fied.html", context)
             else:
+                request.session['userInformation'] = userInformationInDB[0].toJson()
                 return render(request, "index/signIn/success.html")
     else:
         context = {'errorInformation': "Please Input Your Landing Information"}
