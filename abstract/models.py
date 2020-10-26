@@ -17,5 +17,14 @@ class Abstract(models.Model):
     # Abstract download link
     downloadLink = models.CharField(max_length=250)
 
-    abstract = models.CharField(max_length=250)
+    # create abstract date time
+    create_date = models.DateTimeField()
+
+    # Author ID
+    autherID = models.IntegerField()
+
+    # Is the last version
+    isNew = models.IntegerField(default=1)
+
+
 
