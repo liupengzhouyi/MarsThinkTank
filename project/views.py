@@ -42,6 +42,18 @@ def createProject(request):
             return render(request, "index/signIn/signIn.html")
 
 
+def showMyProject(request):
+    userInformationJson = request.session.get('userInformation', default=None)
+    if userInformationJson is None:
+        return render(request, "index/signIn/signIn.html")
+    else:
+        try:
+            userInformationInDB = UserInformation.objects.filter(email=userInformationJson['email'])
+            projects = Project.objects.filter(autherID=userInformationInDB[0].id)
+            context = {"projects": projects}
+            return render(request, "project/showProject/myProject.html", context=context)
+        except UserInformation.DoesNotExist:
+            return render(request, "index/signIn/signIn.html")
 
 
 

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>my Project</title>
+</head>
+<body>
+    <h1>
+        <center>
+            My Project
+        </center>
+    </h1>
+    <hr>
+    <ol>
+        {% for project in projects %}
+            <li> {{ project.name }}</li>
+        {% endfor %}
+    </ol>
+</body>
+</html>
