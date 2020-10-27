@@ -1,6 +1,6 @@
 from datetime import date, datetime
 
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 
 # Create your views here.
@@ -56,5 +56,28 @@ def showMyProject(request):
             return render(request, "index/signIn/signIn.html")
 
 
+def ProjectMapper(project: Project):
+    return {
+        'id':project.id,
+        'name': project.name,
+        'create_date': project.create_date,
+        'autherID': project.autherID
+    }
+
+def getJsonData(request):
+    userInformationJson = request.session.get('userInformation', default=None)
+    if userInformationJson is None:
+        return render(request, "index/signIn/signIn.html")
+    else:
+        try:
+            userInformationInDB = UserInformation.objects.filter(email=userInformationJson['email'])
+            projects = Project.objects.filter(autherID=userInformationInDB[0].id)
+            content = {"projects": projects}
+            projectSet = []
+            for project in projects:
+                projectSet.append(ProjectMapper(project))
+            return JsonResponse(projectSet, safe=False)
+        except UserInformation.DoesNotExist:
+            return render(request, "index/signIn/signIn.html")
 
 
