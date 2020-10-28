@@ -18,7 +18,11 @@ def getFile(request):
         destination.close()
         return render(request, "abstract/success.html")
     else:
-
         return render(request, "abstract/success.html")
 
-
+def file_down(request):
+    file=open(os.path.join(STATIC_URL, "最新激活码.txt"),'rb')
+    response =HttpResponse(file)
+    response['Content-Type']='application/octet-stream'
+    response['Content-Disposition']='attachment;filename="ppp.txt"'
+    return response

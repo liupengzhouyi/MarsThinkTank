@@ -18,10 +18,10 @@ from django.urls import path, include
 from django.conf.urls import url
 
 from uploader.views import getFile
-
+from uploader.views import file_down
 
 urlpatterns = [
     path('getFile/', getFile),
-
+    path('file_down/', file_down)
 
 ]
