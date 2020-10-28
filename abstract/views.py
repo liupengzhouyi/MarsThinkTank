@@ -26,5 +26,3 @@ def updateLastAbstract(abstract):
             abstract.save()
     except Abstract.DoesNotExist:
         abstract.save()
-
-
