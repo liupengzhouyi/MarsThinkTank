@@ -21,7 +21,7 @@ from userInformation.views import signIn, getRegisterInformation
 from userInformation.views import register
 from userInformation.views import trueRegister
 from userInformation.views import getSignInInformation
-from userInformation.views import gg
+
 
 
 urlpatterns = [
@@ -30,9 +30,5 @@ urlpatterns = [
     path('getRegisterInformation/', getRegisterInformation),
     path('trueRegister/', trueRegister),
     path('getSignInInformation/', getSignInInformation),
-    path('gg/', gg),
-
-
-
 
 ]
