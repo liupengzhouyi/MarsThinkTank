@@ -12,7 +12,7 @@
         </center>
     </h1>
     <hr>
-    <form name = "form" enctype = "multipart/form-data" action = "" method = "POST" >
+    <form name = "form" enctype = "multipart/form-data" action = "/uploader/getFile/" method = "POST" >{% csrf_token %}
 
          <div style = "max-width:470px;">
             <center>
@@ -24,7 +24,7 @@
 
          <div style = "max-width:470px;">
             <center>
-               <input type = "file" style = "margin-left:20%;" placeholder = "Picture" name = "picture" />
+               <input type = "file" style = "margin-left:20%;" placeholder = "Picture" name = "file" />
             </center>
          </div>
 

@@ -26,3 +26,6 @@ def updateLastAbstract(abstract):
             abstract.save()
     except Abstract.DoesNotExist:
         abstract.save()
+
+def testFileUpload(request):
+    return render(request, "abstract/FileUpload.html")
