@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Abstract</title>
+</head>
+<body>
+
+    <h1>
+        <center>
+            Create Abstract
+        </center>
+    </h1>
+
+    <hr>
+
+    <form name = "form" enctype = "multipart/form-data" action = "/uploader/getFile/" method = "POST" >{% csrf_token %}
+
+        <table>
+            <tr>
+                <th>
+                    <h3>
+                        abstractType
+                    </h3>
+                </th>
+                <td>
+                    <div style = "max-width:470px;">
+                        <center>
+                            <samp>
+
+                                <input type = "text" style = "margin-left:20%;" name = "name" />
+                            </samp>
+                        </center>
+                     </div>
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    <h3>
+                        fatherID
+                    </h3>
+                </th>
+                <td>
+                    <div style = "max-width:470px;">
+                        <center>
+                            <samp>
+                                <input type = "text" style = "margin-left:20%;" name = "name" />
+                            </samp>
+                        </center>
+                     </div>
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    <h3>
+                        fatherID
+                    </h3>
+                </th>
+                <td>
+                    <div style = "max-width:470px;">
+                        <center>
+                            <samp>
+                                <input type = "text" style = "margin-left:20%;" name = "name" />
+                            </samp>
+                        </center>
+                     </div>
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    <h3>
+                        File
+                    </h3>
+                </th>
+                <td>
+                    <div style = "max-width:470px;">
+                        <div style = "max-width:470px;">
+                            <center>
+                               <input type = "file" style = "margin-left:20%;" name = "file" />
+                            </center>
+                        </div>
+                     </div>
+                </td>
+            </tr>
+
+
+        </table>
+
+         <br>
+
+         <br>
+
+         <div style = "max-width:470px;">
+            <center>
+
+               <button style = "border:0px;background-color:#4285F4; margin-top:8%; height:35px; width:80%; margin-left:19%;" type = "submit" value = "Login" >
+                  <strong>Create</strong>
+               </button>
+
+            </center>
+         </div>
+
+      </form>
+
+</body>
+</html>

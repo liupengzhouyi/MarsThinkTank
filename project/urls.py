@@ -21,12 +21,22 @@ from project.views import createProject
 from project.views import getProjectInformation
 from project.views import showMyProject
 from project.views import getJsonData
+from project.views import projectInformation
+
+
+
+
+
 
 urlpatterns = [
     path('getProjectInformation/', getProjectInformation),
     path('createProject/', createProject),
     path('showMyProject/', showMyProject),
     path('getJsonData/', getJsonData),
+    path('projectInformation/', projectInformation),
+
+
+
 
 
 

@@ -13,7 +13,11 @@
     <hr>
     <ol>
         {% for project in projects %}
-            <li> {{ project.name }}</li>
+            <li>
+                <a href="/project/projectInformation/?projectInformationID={{ project.id }}">
+                    {{ project.name }}
+                </a>
+            </li>
         {% endfor %}
     </ol>
 </body>

@@ -18,9 +18,13 @@ from django.urls import path, include
 from django.conf.urls import url
 
 from abstract.views import testFileUpload
+from abstract.views import create
+
+
+
 
 urlpatterns = [
     path('testFileUpload/', testFileUpload),
-
+    path('create/', create),
 
 ]

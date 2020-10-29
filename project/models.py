@@ -12,8 +12,8 @@ class Project(models.Model):
 
     autherID = models.IntegerField()
 
-
-
+    def __str__(self):
+        return 'name：%s  create_data：%d  autherI：%s' % (self.name, self.create_date, self.autherID)
 
 
 

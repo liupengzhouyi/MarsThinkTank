@@ -4,6 +4,8 @@ from django.shortcuts import render
 from abstract.models import Abstract
 
 
+
+
 def createAbstract(abstract):
     abstract.save()
 
@@ -29,3 +31,11 @@ def updateLastAbstract(abstract):
 
 def testFileUpload(request):
     return render(request, "abstract/FileUpload.html")
+
+def create(request):
+    return render(request, "abstract/createAbstract.html")
+
+
+
+
+

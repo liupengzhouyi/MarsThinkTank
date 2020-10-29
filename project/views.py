@@ -6,6 +6,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.template import loader
 
+from project.mapper import ProjectMapper
 from project.models import Project
 from userInformation.models import UserInformation
 
@@ -56,13 +57,7 @@ def showMyProject(request):
             return render(request, "index/signIn/signIn.html")
 
 
-def ProjectMapper(project: Project):
-    return {
-        'id':project.id,
-        'name': project.name,
-        'create_date': project.create_date,
-        'autherID': project.autherID
-    }
+
 
 def getJsonData(request):
     userInformationJson = request.session.get('userInformation', default=None)
@@ -80,4 +75,11 @@ def getJsonData(request):
         except UserInformation.DoesNotExist:
             return render(request, "index/signIn/signIn.html")
 
+def projectInformation(request):
+    projectInformationID = request.GET['projectInformationID']
+    if projectInformationID is None:
+        return render(request, "project/information/ProjectInformation.html")
+    else:
+        projectInformationInDB = Project.objects.filter(id = projectInformationID)
+        return render(request, "project/information/ProjectInformation.html", context=ProjectMapper(projectInformationInDB[0]))
 
