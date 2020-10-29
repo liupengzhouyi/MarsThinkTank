@@ -38,4 +38,56 @@ def create(request):
 
 
 
+from django.shortcuts import render
+from django.contrib.auth.models import User,Group
+from rest_framework import viewsets
+from abstract.serializers import UserSerializer,GroupSerializer
 
+# Create your views here.
+
+# viewsets通过serializer_class找到对应的serializers
+class UserViewSet(viewsets.ModelViewSet):
+    '''
+        retrieve:
+            Return a user instance.
+
+        list:
+            Return all users,ordered by most recent joined.
+
+        create:
+            Create a new user.
+
+        delete:
+            Remove a existing user.
+
+        partial_update:
+            Update one or more fields on a existing user.
+
+        update:
+            Update a user.
+    '''
+    queryset = User.objects.all()   # 将User的所有对象赋给queryset，并返回对应值
+    serializer_class = UserSerializer   # 指向UserSerializer
+
+class GroupViewSet(viewsets.ModelViewSet):
+    '''
+        retrieve:
+            Return a group instance.
+
+        list:
+            Return all groups,ordered by most recent joined.
+
+        create:
+            Create a new group.
+
+        delete:
+            Remove a existing group.
+
+        partial_update:
+            Update one or more fields on a existing group.
+
+        update:
+            Update a group.
+    '''
+    queryset = Group.objects.all()
+    serializer_class = GroupSerializer

@@ -21,9 +21,15 @@ from abstract.views import testFileUpload
 from abstract.views import create
 
 
+from django.conf.urls import url
+from . import views
 
 
 urlpatterns = [
+    url('', views.UserViewSet),
+    url('<int:pk>/', views.GroupViewSet),
+
+
     path('testFileUpload/', testFileUpload),
     path('create/', create),
 

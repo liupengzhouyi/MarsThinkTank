@@ -11,3 +11,4 @@ class APISerializer(serializers.ModelSerializer):
     class Meta:
         model = APIInfo
         fields = "__all__"
+

@@ -28,6 +28,11 @@ from index.views import indexPage
 router = routers.DefaultRouter()
 router.register('api_info', views.APIInfoViewSet)
 
+from abstract.views import UserViewSet, GroupViewSet
+
+router.register(r'users',UserViewSet)
+router.register(r'groups',GroupViewSet)
+
 schema_view = get_schema_view(
     openapi.Info(
         title="测试工程API",
@@ -41,11 +46,12 @@ schema_view = get_schema_view(
     permission_classes=(permissions.AllowAny,),
 )
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-# 配置django-rest-framwork API路由
+    path('',include(router.urls)),  # 代表位于根路径的主域名(http://127.0.0.1:8000)
+
+    # 配置django-rest-framwork API路由
     url('api/', include('api.urls')),
     url('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
@@ -55,7 +61,6 @@ urlpatterns = [
     url('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 
     path('index/', indexPage),
-
 
     path('userInformation/', include('userInformation.urls')),
     path('project/', include('project.urls')),
