@@ -3,6 +3,7 @@ import os
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.template import loader
+from django.utils.http import urlquote
 from django.views.decorators.csrf import csrf_exempt
 
 from MarsThinkTank.settings import STATIC_URL
@@ -24,5 +25,5 @@ def file_down(request):
     file=open(os.path.join(STATIC_URL, "最新激活码.txt"),'rb')
     response =HttpResponse(file)
     response['Content-Type']='application/octet-stream'
-    response['Content-Disposition']='attachment;filename="ppp.txt"'
+    response['Content-Disposition']='attachment;filename="%s"' % (urlquote("最新激活码.txt"))
     return response
