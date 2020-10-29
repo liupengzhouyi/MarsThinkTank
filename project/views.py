@@ -5,6 +5,8 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.template import loader
+from rest_framework.schemas import coreapi
+from rest_framework.views import APIView
 
 from project.mapper import ProjectMapper
 from project.models import Project
@@ -82,4 +84,3 @@ def projectInformation(request):
     else:
         projectInformationInDB = Project.objects.filter(id = projectInformationID)
         return render(request, "project/information/ProjectInformation.html", context=ProjectMapper(projectInformationInDB[0]))
-

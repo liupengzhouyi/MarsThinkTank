@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url
+from rest_framework_swagger.views import get_swagger_view
 
 from project.views import createProject
 from project.views import getProjectInformation
@@ -25,11 +26,11 @@ from project.views import projectInformation
 
 
 
-
+schema_view = get_swagger_view(title="Project API")
 
 
 urlpatterns = [
-    path('getProjectInformation/', getProjectInformation),
+
     path('createProject/', createProject),
     path('showMyProject/', showMyProject),
     path('getJsonData/', getJsonData),

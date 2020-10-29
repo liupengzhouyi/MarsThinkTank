@@ -42,6 +42,13 @@ INSTALLED_APPS = [
     'abstract',
     'project',
     'uploader',
+    'rest_framework_swagger',
+    'rest_framework',
+    'drf_yasg',
+    'api',
+
+
+
 
 
 
@@ -136,4 +143,34 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '././tempFilePath/'
+TEMPFILE_URL = '././tempFilePath/'
+
+STATIC_URL = '/static/'
+
+# swagger 配置项
+SWAGGER_SETTINGS = {
+    'LOGIN_URL': '/admin/login',
+    'LOGOUT_URL': '/admin/logout',
+    'PERSIST_AUTH': True,
+    'REFETCH_SCHEMA_WITH_AUTH': True,
+    'REFETCH_SCHEMA_ON_LOGOUT': True,
+
+    'DEFAULT_INFO': 'DjangoDrfTest.urls.swagger_info',#这里注意，更改DjangoDrfTest
+
+    'SECURITY_DEFINITIONS': {
+        'Basic': {
+            'type': 'basic'
+        },
+        'Bearer': {
+            'type': 'apiKey',
+            'name': 'authorization',
+            'in': 'header'
+        },
+        'Query': {
+            'type': 'apiKey',
+            'name': 'auth',
+            'in': 'query'
+        }
+    }
+}
+

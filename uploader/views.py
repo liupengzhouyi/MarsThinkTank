@@ -6,14 +6,14 @@ from django.template import loader
 from django.utils.http import urlquote
 from django.views.decorators.csrf import csrf_exempt
 
-from MarsThinkTank.settings import STATIC_URL
+from MarsThinkTank.settings import TEMPFILE_URL
 
 
 @csrf_exempt
 def getFile(request):
     if request.method == 'POST':
         myFile = request.FILES.get("file", None)  # 获取上传的文件，如果没有文件，则默认为None
-        destination = open(os.path.join(STATIC_URL, myFile.name), 'wb+')  # 打开特定的文件进行二进制的写操作
+        destination = open(os.path.join(TEMPFILE_URL, myFile.name), 'wb+')  # 打开特定的文件进行二进制的写操作
         for chunk in myFile.chunks():  # 分块写入文件
             destination.write(chunk)
         destination.close()
@@ -22,7 +22,7 @@ def getFile(request):
         return render(request, "abstract/success.html")
 
 def file_down(request):
-    file=open(os.path.join(STATIC_URL, "最新激活码.txt"),'rb')
+    file=open(os.path.join(TEMPFILE_URL, "最新激活码.txt"),'rb')
     response =HttpResponse(file)
     response['Content-Type']='application/octet-stream'
     response['Content-Disposition']='attachment;filename="%s"' % (urlquote("最新激活码.txt"))
