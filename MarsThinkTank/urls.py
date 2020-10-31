@@ -66,6 +66,8 @@ urlpatterns = [
     path('project/', include('project.urls')),
     path('abstract/', include('abstract.urls')),
     path('uploader/', include('uploader.urls')),
+    path('title/', include('title.urls')),
+
 
 
     #url(r'^test1', CustomView.as_view(), name='test1'),

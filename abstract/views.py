@@ -1,6 +1,8 @@
 from django.shortcuts import render
 
 # Create your views here.
+from django.views import View
+
 from abstract.models import Abstract
 
 
@@ -91,3 +93,14 @@ class GroupViewSet(viewsets.ModelViewSet):
     '''
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
+
+
+class AbstractView(View):
+    form_class = Abstract
+    initial = {'value': 'value'}
+    tempplate_name = ''
+
+    def get(self, requesr):
+        form = self.form_class(initial=self.initial)
+        return render(render, self.tempplate_name, {'form' : form})
+

@@ -19,7 +19,6 @@ from django.conf.urls import url
 from rest_framework_swagger.views import get_swagger_view
 
 from project.views import createProject
-from project.views import getProjectInformation
 from project.views import showMyProject
 from project.views import getJsonData
 from project.views import projectInformation

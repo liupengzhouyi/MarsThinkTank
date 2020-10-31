@@ -6,6 +6,8 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
         fields = "__all__"
+
+
 class GroupSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model =Group
