@@ -11,5 +11,11 @@ class Title(models.Model):
 
     authorID = models.IntegerField()
 
+    def toJson(self):
+        return {
+            'name': self.name,
+            'createDateTime': self.createDateTime,
+            'authorID': self.authorID
+        }
 
 

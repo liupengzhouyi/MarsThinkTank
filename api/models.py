@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 class APIInfo(models.Model):
+
     api_name = models.CharField(max_length=32, verbose_name="接口名称", default="请输入接口名称")
     # 接口描述
     api_describe = models.TextField(max_length=255, verbose_name="接口描述", default="请输入接口描述")
