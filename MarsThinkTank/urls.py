@@ -61,6 +61,9 @@ urlpatterns = [
     path('project/', include('project.urls')),
     path('abstract/', include('abstract.urls')),
     path('title/', include('title.urls')),
+    path('file/', include('file.urls')),
+
+
 
 
 

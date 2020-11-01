@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -48,6 +48,9 @@ INSTALLED_APPS = [
     'abstract',
     'project',
     'title',
+    'file',
+
+
 
 
 
@@ -151,6 +154,10 @@ USE_TZ = True
 TEMPFILE_URL = '././tempFilePath/'
 
 STATIC_URL = '/static/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "files")
+
+MEDIA_URL = "/files/"
 
 # swagger 配置项
 SWAGGER_SETTINGS = {

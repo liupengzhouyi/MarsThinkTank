@@ -25,8 +25,6 @@ class APIDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = models.APIInfo.objects.all()
     serializer_class = serializers.APISerializer
 
-
-
 class APIInfoViewSet(viewsets.ModelViewSet):
     """
         retrieve:
