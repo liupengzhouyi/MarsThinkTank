@@ -28,11 +28,6 @@ from index.views import indexPage
 router = routers.DefaultRouter()
 router.register('api_info', views.APIInfoViewSet)
 
-from abstract.views import UserViewSet, GroupViewSet
-
-router.register(r'users',UserViewSet)
-router.register(r'groups',GroupViewSet)
-
 schema_view = get_schema_view(
     openapi.Info(
         title="测试工程API",
@@ -65,7 +60,6 @@ urlpatterns = [
     path('userInformation/', include('userInformation.urls')),
     path('project/', include('project.urls')),
     path('abstract/', include('abstract.urls')),
-    path('uploader/', include('uploader.urls')),
     path('title/', include('title.urls')),
 
 

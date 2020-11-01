@@ -1,14 +1,11 @@
 # 序列化
-from django.contrib.auth.models import User,Group
 from rest_framework import serializers
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = User
-        fields = "__all__"
+from abstract.models import Abstract
 
 
-class GroupSerializer(serializers.HyperlinkedModelSerializer):
+class AbstractSerializer(serializers.ModelSerializer):
+
     class Meta:
-        model =Group
-        fields = "__all__"
+        model = Abstract
+        fields = ['abstractType', 'fatherID', 'abstractFileType', 'downloadLink', 'create_date', 'autherID', 'isNew']

@@ -17,8 +17,6 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url
 
-from abstract.views import testFileUpload
-from abstract.views import create
 
 
 from django.conf.urls import url
@@ -26,11 +24,6 @@ from . import views
 
 
 urlpatterns = [
-    url('', views.UserViewSet),
-    url('<int:pk>/', views.GroupViewSet),
-
-
-    path('testFileUpload/', testFileUpload),
-    path('create/', create),
-
+    url('create/', views.createAbstract.as_view()),
+    url('list/', views.abstractList.as_view()),
 ]

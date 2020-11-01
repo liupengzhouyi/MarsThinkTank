@@ -47,8 +47,8 @@ INSTALLED_APPS = [
     'userInformation',
     'abstract',
     'project',
-    'uploader',
     'title',
+
 
 
 

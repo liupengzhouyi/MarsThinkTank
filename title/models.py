@@ -5,10 +5,13 @@ from django.db import models
 
 class Title(models.Model):
 
+    # title name
     name = models.CharField(max_length=100)
 
+    # title created date time
     createDateTime = models.DateTimeField()
 
+    # who create this title
     authorID = models.IntegerField()
 
     def toJson(self):
